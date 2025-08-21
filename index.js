@@ -56,7 +56,10 @@ app.post('/api/ai/chat', async (req, res) => {
         res.status(500).json({ error: "An internal server error occurred." });
     }
 });
-
+app.get('/', (req, res) => {
+    res.setHeader('Content-Type', 'application/json');
+    res.status(200).send(JSON.stringify({ status: "AI Agent is running" }));
+});
 app.listen(PORT, () => {
     console.log(`AI Agent server is running on http://localhost:${PORT}`);
 });
